@@ -37,7 +37,6 @@ export const parsers = {
 
         const replacement = buildReplacement(result);
         replacedText = replacedText.replace(result, replacement);
-
         const cleanedResult = result
           .replace(/{{(?!-)[ \t]*/g, "{{ ")
           .replace(/[ \t]*(?<!-)}}/g, " }}")
