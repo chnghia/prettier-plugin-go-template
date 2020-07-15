@@ -37,7 +37,7 @@ export const parsers = {
 
         const replacement = buildReplacement(result);
         replacedText = replacedText.replace(result, replacement);
-        const resultCleanedWhitespace = result.replace(/ *\n/g, "\n");
+        const resultCleanedWhitespace = result.replace(/ *\n/g, "");
         replacements.set(replacement, resultCleanedWhitespace);
       }
 
