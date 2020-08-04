@@ -29,6 +29,7 @@
     "publish:coverage": "codecov -t $npm_config_prettier_plugin_go_html_codecov",
     "release:coverage": "npm run coverage && npm run publish:coverage",
     "build": "tsc --pretty",
+    "prepare": "npm run build",
     "watch": "npm run build -- --watch",
     "watch:test": "jest --watch",
     "release:plugin": "npm run build && npm publish",
