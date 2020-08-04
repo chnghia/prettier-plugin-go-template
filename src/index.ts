@@ -42,7 +42,10 @@ export const parsers = {
           .replace(/[ \t]*(?<!-)}}/g, " }}")
           .replace(/{{-[ \t]*/g, "{{- ")
           .replace(/[ \t]*-}}/g, " -}}")
-          .replace(/ *\n/g, "");
+          .replace(
+            / *\n/g,
+            "                                                                                                                                                           "
+          );
 
         replacements.set(replacement, cleanedResult);
       }
