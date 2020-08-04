@@ -1,9 +1,10 @@
 import * as prettier from "prettier";
+import * as GoTemplatePlugin from "./index";
 
 const prettify = (code: string) =>
   prettier.format(code, {
     parser: "go-template" as any,
-    plugins: ["lib"],
+    plugins: [GoTemplatePlugin],
   });
 
 interface CodeTestCase {
@@ -188,6 +189,26 @@ This is an article. Name: {{ .article.name }}
 <script>
   {{ $analytics.Content | safeJS }}
 </script>
+`,
+  },
+  {
+    name: "Bracket Spacing",
+    code: `{{   define "some"}}
+{{   . }}
+{{end}} `,
+    expectedCode: `{{ define "some" }}
+{{ . }}
+{{ end }}
+`,
+  },
+  {
+    name: "Bracket Spacing with Hyphens",
+    code: `{{-  define "some"-}}
+{{   . }}
+{{-end-}} `,
+    expectedCode: `{{- define "some" -}}
+{{ . }}
+{{- end -}}
 `,
   },
 ];
